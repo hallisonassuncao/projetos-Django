@@ -1,0 +1,35 @@
+<!-- Formulário para enviar um comentário -->
+<h2>Enviar Comentário</h2>
+
+<form method="POST">
+    <!-- Proteção contra CSRF no Django -->
+    {% csrf_token %}
+
+    <!-- Campo para o nome do autor -->
+    <label>Autor:</label><br>
+    <input type="text" name="autor">
+    <br><br>
+
+    <!-- Campo para o texto do comentário -->
+    <label>Texto:</label><br>
+    <textarea name="texto"></textarea>
+    <br><br>
+
+    <!-- Botão para enviar o formulário -->
+    <button type="submit">Enviar</button>
+</form>
+
+<!-- Lista de comentários existentes -->
+<h2>Comentários</h2>
+
+<ul>
+    <!-- Percorre os comentários recebidos da view -->
+    {% for comentario in comentarios %}
+        <li>
+            {{ comentario.autor }}: {{ comentario.texto }}
+        </li>
+    {% empty %}
+        <!-- Mensagem exibida quando não há comentários -->
+        <li>Nenhum comentário disponível.</li>
+    {% endfor %}
+</ul>
