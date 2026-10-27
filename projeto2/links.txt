@@ -1,0 +1,29 @@
+1. Página inicial
+http://localhost:8000/
+
+2. Lista de pessoas
+http://localhost:8000/api/pessoas/
+
+3. Detalhes da pessoa com ID 1
+http://localhost:8000/api/pessoas/1/
+
+4. Detalhes da pessoa com ID 2
+http://localhost:8000/api/pessoas/2/
+
+5. Ordenar por ID crescente
+http://localhost:8000/api/pessoas/?ordering=id
+
+6. Ordenar por ID decrescente
+http://localhost:8000/api/pessoas/?ordering=-id
+
+7. Ordenar por nome crescente
+http://localhost:8000/api/pessoas/?ordering=nome
+
+8. Ordenar por nome decrescente
+http://localhost:8000/api/pessoas/?ordering=-nome
+
+9. Ordenar por cidade
+http://localhost:8000/api/pessoas/?ordering=cidade
+
+10. Painel administrativo do Django
+http://localhost:8000/admin/
