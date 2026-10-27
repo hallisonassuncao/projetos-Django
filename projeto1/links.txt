@@ -1,0 +1,12 @@
+Links do projeto1
+
+Função
+
+http://127.0.0.1:8000/ 
+
+Página inicial: exibe o formulário e a lista de comentários, se essa for a rota configurada.
+
+http://127.0.0.1:8000/admin/ 
+
+Painel administrativo: permite administrar os dados do Django após fazer login.
+
