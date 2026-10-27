@@ -8,8 +8,7 @@ def home(request):
 
 
 urlpatterns = [
-    path('', home, name='home'),
     path('admin/', admin.site.urls),
-    path('api/', include('cadpessoas.urls')),
     path('', include('cadpessoas.urls')),
+    path('api/', include('cadpessoas.urls')),
 ]

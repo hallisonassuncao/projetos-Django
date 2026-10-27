@@ -1,14 +1,17 @@
-
-from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import viewsets, filters
 
 from .models import Pessoas
 from .serializers import PessoasSerializer
 
 
-# ViewSet para o recurso Pessoas.
-# Fornece operações CRUD automaticamente:
-# list, retrieve, create, update e destroy.
 class PessoasViewSet(viewsets.ModelViewSet):
-    queryset = Pessoas.objects.all().order_by('id')
+    queryset = Pessoas.objects.all()
     serializer_class = PessoasSerializer
+
+    # Permitir ordenação por nome, cidade e ID
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = ['nome', 'cidade', 'id']
+    ordering = ['id']
+
+    # Permitir apenas GET e HEAD
+    http_method_names = ['get', 'head']
