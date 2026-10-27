@@ -1,0 +1,54 @@
+API de Livros — Links e descrições
+1. Página inicial
+
+Link: http://127.0.0.1:8000/ 
+
+Descrição: Página principal do projeto, com links para a API, a documentação e o painel administrativo.
+
+2. API
+
+Link: http://127.0.0.1:8000/api/ 
+
+Descrição: Exibe as rotas disponíveis da API, incluindo os endpoints de autores e livros.
+
+3. Documentação Swagger
+
+Link: http://127.0.0.1:8000/api/docs/ 
+
+Descrição: Interface interativa para visualizar, testar e executar requisições HTTP à API, como GET, POST, PUT, PATCH e DELETE.
+
+4. Documentação ReDoc
+
+Link: http://127.0.0.1:8000/api/redoc/ 
+
+Descrição: Apresenta a documentação da API em um formato organizado para consulta dos endpoints, parâmetros, respostas e modelos de dados.
+
+5. Painel Administrativo
+
+Link: http://127.0.0.1:8000/admin/ 
+
+Descrição: Área administrativa do Django para gerenciar dados do sistema. É necessário fazer login com um usuário autorizado.
+
+6. Endpoint de Autores
+
+Link: http://127.0.0.1:8000/api/autores/ 
+
+Descrição: Permite listar, cadastrar, consultar, atualizar e excluir autores, conforme as permissões e operações configuradas na API.
+
+7. Endpoint de Livros
+
+Link: http://127.0.0.1:8000/api/livros/ 
+
+Descrição: Permite listar, cadastrar, consultar, atualizar e excluir livros. Cada livro possui informações como título, autor, ISBN, número de páginas e ano de publicação.
+
+8. Autenticação por Token
+
+Link: http://127.0.0.1:8000/api-token-auth/ 
+
+Descrição: Endpoint utilizado para obter um token de autenticação a partir de credenciais de usuário, enviadas por uma requisição POST.
+
+9. Esquema OpenAPI
+
+Link: http://127.0.0.1:8000/api/schema/ 
+
+Descrição: Disponibiliza o esquema da API no formato OpenAPI, utilizado para descrever endpoints, parâmetros, operações e respostas.
