@@ -1,16 +1,16 @@
-from django.shortcuts import render
 
-# Create your views here.
-from django.shortcuts import render, redirect  # Renderizar templates e redirecionar
-from .models import Comentario  # Modelo usado para persistência
+from django.shortcuts import render, redirect, get_object_or_404
+from django.views.decorators.http import require_POST
+from .models import Comentario
 
 
 # View para salvar um comentário e exibir o formulário e a lista
 def salvar_comentario(request):
+
     # Se o método for POST, processa o envio do formulário
     if request.method == 'POST':
-        autor = request.POST.get('autor')  # Obtém o nome do autor
-        texto = request.POST.get('texto')  # Obtém o conteúdo do comentário
+        autor = request.POST.get('autor')
+        texto = request.POST.get('texto')
 
         # Cria uma instância do modelo
         comentario = Comentario(autor=autor, texto=texto)
@@ -31,3 +31,16 @@ def salvar_comentario(request):
         {'comentarios': comentarios}
     )
 
+
+# View para excluir um comentário
+@require_POST
+def excluir_comentario(request, id):
+
+    # Busca o comentário pelo ID ou retorna erro 404
+    comentario = get_object_or_404(Comentario, id=id)
+
+    # Exclui o comentário do banco de dados
+    comentario.delete()
+
+    # Retorna à página principal
+    return redirect('salvar_comentario')

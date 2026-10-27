@@ -61,7 +61,8 @@
             margin-bottom: 7px;
         }
 
-        input, textarea {
+        input,
+        textarea {
             width: 100%;
             padding: 12px 14px;
             border: 1px solid #cbd5e1;
@@ -71,7 +72,8 @@
             background: #fff;
         }
 
-        input:focus, textarea:focus {
+        input:focus,
+        textarea:focus {
             outline: none;
             border-color: #6366f1;
             box-shadow: 0 0 0 3px #6366f122;
@@ -119,6 +121,19 @@
             color: #475569;
         }
 
+        /* Botão para excluir comentários */
+        .botao-excluir {
+            width: auto;
+            margin-top: 14px;
+            padding: 9px 16px;
+            background: #dc2626;
+            font-size: 14px;
+        }
+
+        .botao-excluir:hover {
+            background: #b91c1c;
+        }
+
         .vazio {
             color: #64748b;
             text-align: center;
@@ -151,10 +166,11 @@
     </header>
 
     <main>
+        <!-- Formulário para cadastrar comentários -->
         <section class="card">
             <h2>✍️ Enviar comentário</h2>
 
-            <form method="POST">
+            <form method="POST" action="{% url 'salvar_comentario' %}">
                 {% csrf_token %}
 
                 <label for="autor">Seu nome</label>
@@ -179,16 +195,35 @@
             </form>
         </section>
 
+        <!-- Lista de comentários -->
         <section class="card">
             <h2>📋 Comentários recentes</h2>
 
             {% for comentario in comentarios %}
                 <article class="comentario">
+
                     <div class="autor">
                         👤 {{ comentario.autor }}
                     </div>
 
                     <div class="texto">{{ comentario.texto }}</div>
+
+                    <!-- Formulário para excluir o comentário -->
+                    <form
+                        method="POST"
+                        action="{% url 'excluir_comentario' comentario.id %}"
+                        onsubmit="return confirm('Tem certeza de que deseja excluir este comentário?');"
+                    >
+                        {% csrf_token %}
+
+                        <button
+                            type="submit"
+                            class="botao-excluir"
+                        >
+                            🗑️ Excluir comentário
+                        </button>
+                    </form>
+
                 </article>
             {% empty %}
                 <p class="vazio">
