@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API de Livros</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2563eb, #4338ca);
+            color: white;
+            text-align: center;
+            padding: 65px 20px;
+        }
+
+        header h1 {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        header p {
+            font-size: 17px;
+            color: #dbeafe;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .intro h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .intro p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px #0000000d;
+            border: 1px solid #e2e8f0;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px #00000015;
+        }
+
+        .icon {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #64748b;
+            line-height: 1.6;
+            min-height: 75px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 11px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📚 API de Livros</h1>
+        <p>Uma maneira simples de organizar autores e livros.</p>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h2>Bem-vindo ao projeto!</h2>
+            <p>Escolha uma opção para continuar.</p>
+        </section>
+
+        <section class="cards">
+            <article class="card">
+                <div class="icon">🔗</div>
+                <h3>API</h3>
+                <p>Acesse os endpoints disponíveis no projeto.</p>
+                <a class="button" href="{% url 'api-root' %}">Acessar API</a>
+            </article>
+
+            <article class="card">
+                <div class="icon">⚡</div>
+                <h3>Swagger</h3>
+                <p>Explore e teste as requisições da API.</p>
+                <a class="button" href="{% url 'swagger-ui' %}">Abrir Swagger</a>
+            </article>
+
+            <article class="card">
+                <div class="icon">📖</div>
+                <h3>ReDoc</h3>
+                <p>Consulte a documentação técnica da API.</p>
+                <a class="button" href="{% url 'redoc' %}">Abrir ReDoc</a>
+            </article>
+
+            <article class="card">
+                <div class="icon">⚙️</div>
+                <h3>Administração</h3>
+                <p>Gerencie os dados pelo painel do Django.</p>
+                <a class="button" href="{% url 'admin:index' %}">Acessar painel</a>
+            </article>
+
+            <article class="card">
+                <div class="icon">✍️</div>
+                <h3>Autores</h3>
+                <p>Consulte os autores cadastrados.</p>
+                <a class="button" href="/api/autores/">Ver autores</a>
+            </article>
+
+            <article class="card">
+                <div class="icon">📚</div>
+                <h3>Livros</h3>
+                <p>Consulte os livros e seus detalhes.</p>
+                <a class="button" href="/api/livros/">Ver livros</a>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        API de Livros · Desenvolvido com Django REST Framework
+    </footer>
+</body>
+</html>
